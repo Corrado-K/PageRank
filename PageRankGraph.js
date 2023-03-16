@@ -21,8 +21,6 @@ class PRGraph{
           this.pr_edges.get(firstNode).push(secondNode)
      }
 
-     
-
 
      /***
       *  research:
@@ -103,13 +101,13 @@ class PRGraph{
 }
 
 
-// Example usage
+// Example
 const graph = new PRGraph();
 graph.setEdge('A', 'B');
+graph.setEdge('B', 'D');
 graph.setEdge('B', 'C');
-graph.setEdge('C', 'A');
-graph.setEdge('C', 'D');
-graph.setEdge('D', 'E');
-graph.setEdge('E', 'C');
+graph.setEdge('C', 'E');
+graph.setEdge('D', 'A');
+graph.setEdge('E', 'B');
 const pageRank = graph.pageRank();
 console.log(pageRank); 
