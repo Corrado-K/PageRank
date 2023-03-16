@@ -9,7 +9,7 @@ class PRGraph{
      }
      
      // Set the edges between node. this is directional.
-     // need to check if a node is already set to a
+     // need to check if a node is already set to another node
      setEdge(firstNode, secondNode) {
           if (!this.pr_nodes.has(firstNode)) {
                this.pr_nodes.add(firstNode)
@@ -38,8 +38,13 @@ class PRGraph{
  */
 
      pageRank() {
-          const MAX_ITR = 100
+          //the page rank algorithm converges so let's set a limit to the number of iterations
+          const MAX_ITR = 100 
+
+          // Initial pagerank value for each node is the same and would be assigned to each node before further processing
           const INITIAL_PR = 1/(this.pr_nodes.size)
+
+          // Usually the damping factor is given as 0.85 so let's set that constant
           const DAMPING_FACTOR = 0.85
 
           let pageRanker = new Map()
